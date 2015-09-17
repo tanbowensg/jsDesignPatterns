@@ -1,0 +1,64 @@
+<html>
+<head>
+    <script src="jquery.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div>
+        <h3>装饰者模式 Decorator Pattern</h3>
+        <p id="decorator-p">可以在运行时动态添加附加功能到对象中，而不改变原本对象的设计模式.</p>
+        <button id="decorator-init">generate</button>
+        <button id="decorator-bold">bold</button>
+        <button id="decorator-red">red</button>
+        <button id="decorator-big">big</button>
+        <button id="decorator-unbold">unbold</button>
+        <button id="decorator-unred">unred</button>
+        <button id="decorator-unbig">unbig</button>
+        <button id="decorator-origin">origin</button>
+    </div>
+
+    <div>
+        <h3>策略模式 Strategy Pattern</h3>
+        <p>代码的客户端可以用同一个接口，同时根据上下文从多个算法中选择一个用于处理特定任务的算法。</p>
+        <input type="text" id="strategy-name" placeholder="Username can not be empty">
+        <input type="text" id="strategy-num" placeholder='Phone Number should be number'>
+        <input type="submit" id="strategy-submit">
+    </div>
+
+    <div>
+        <h3>代理模式 Proxy Pattern</h3>
+        <p>一个对象充当另一个对象的接口</p>
+        <input type="checkbox" id="checkbox1">
+        <input type="checkbox" id="checkbox2">
+        <input type="checkbox" id="checkbox3">
+        <input type="checkbox" id="checkbox4">
+    </div>
+
+    <div>
+        <h3>中介者模式 Mediator Pattern</h3>
+        <p>让一个对象充当各个对象相互通信的中介者，以促进各个对象的松耦合，提高可维护性。</p>
+    </div>
+
+    <div>
+        <h3>观察者模式（发布订阅模式） Observer Pattern</h3>
+        <p>当一个对象发生了事情后，发布者会通知所有订阅者。</p>
+        <button id="observer-publisher-greet">greet</button>
+        <button id="observer-subscribe-p1">subscribe1</button>
+        <button id="observer-subscribe-p2">subscribe2</button>
+        <button id="observer-subscribe-p3">subscribe3</button>
+        <button id="observer-unsubscribe-p1">unsubscribe1</button>
+        <button id="observer-unsubscribe-p2">unsubscribe2</button>
+        <button id="observer-unsubscribe-p3">unsubscribe3</button>
+        <p id="observer-publisher-p"></p>
+        <p id="observer-p1"></p>
+        <p id="observer-p2"></p>
+        <p id="observer-p3"></p>
+    </div>
+  <footer>
+    <h3>参考文献</h3>
+    <p>1、GoF. 设计模式 可复用面向对象软件的基础. 机械工业出版社. 2000</p>
+    <p>2、Stoyan Stefanov. JavaScript模式. 中国电力出版社. 2012</p>
+    <p>3、曾探. JavaScript设计模式与开发实践. 人民邮电出版社. 2015</p>
+  </footer>
+  </body>
+</html>
