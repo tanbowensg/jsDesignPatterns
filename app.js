@@ -120,6 +120,9 @@ var decoratorPattern = (function() {
 
         $("#decorator-p").append(word)
     }
+    obj.origin = function(word) {
+        $("#decorator-p").append(obj.word)
+    }
     obj.decorate = function(decorator) {
         obj.decoratorsList.push(decorator);
         return obj
@@ -132,6 +135,11 @@ var decoratorPattern = (function() {
         }
         return obj
     }
+    return obj
+}())
+
+var decorators = (function(){
+    var obj={}
     obj.red = function(word) {
         return word.css('color', 'red')
     }
@@ -141,29 +149,11 @@ var decoratorPattern = (function() {
     obj.big = function(word) {
         return word.css('font-size', '2em')
     }
-    obj.origin = function(word) {
-        $("#decorator-p").append(obj.word)
-    }
-
     return obj
 }())
 
 // //策略模式
 var strategyPattern = {
-    strategies: {
-        isNonEmpty: {
-            validate: function(value) {
-                return value !== '';
-            },
-            instructions: 'can not be empty',
-        },
-        isNum: {
-            validate: function(value) {
-                return !isNaN(value);
-            },
-            instructions: 'should be number',
-        },
-    },
     messages: [],
     config: {
         name: 'isNonEmpty',
@@ -182,7 +172,7 @@ var strategyPattern = {
                 config = this.config[i].split(',');
 
                 for (j in config) {
-                    checker = this.strategies[config[j]];
+                    checker = strategies[config[j]];
 
                     // if (!config[j]) {
                     //     continue
@@ -202,13 +192,26 @@ var strategyPattern = {
                 }
             }
         }
-
         if (this.hasErrors()) {
             alert(this.messages.join("\n"));
         }
     }
 }
 
+var strategies={
+    isNonEmpty: {
+        validate: function(value) {
+            return value !== '';
+        },
+        instructions: 'can not be empty',
+    },
+    isNum: {
+        validate: function(value) {
+            return !isNaN(value);
+        },
+        instructions: 'should be number',
+    }
+}
 //观察者模式
 
 // var publisher = {
@@ -467,27 +470,27 @@ $(function() {
     $("#decorator-origin").click(decoratorPattern.origin)
 
     $("#decorator-red").click(function() {
-        decoratorPattern.decorate(decoratorPattern.red)
+        decoratorPattern.decorate(decorators.red)
     })
 
     $("#decorator-big").click(function() {
-        decoratorPattern.decorate(decoratorPattern.big)
+        decoratorPattern.decorate(decorators.big)
     })
 
     $("#decorator-bold").click(function() {
-        decoratorPattern.decorate(decoratorPattern.bold)
+        decoratorPattern.decorate(decorators.bold)
     })
 
     $("#decorator-unred").click(function() {
-        decoratorPattern.undecorate(decoratorPattern.red)
+        decoratorPattern.undecorate(decorators.red)
     })
 
     $("#decorator-unbig").click(function() {
-        decoratorPattern.undecorate(decoratorPattern.big)
+        decoratorPattern.undecorate(decorators.big)
     })
 
     $("#decorator-unbold").click(function() {
-        decoratorPattern.undecorate(decoratorPattern.bold)
+        decoratorPattern.undecorate(decorators.bold)
     })
 
     $("#strategy-submit").click(function(event) {
